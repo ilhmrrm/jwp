@@ -149,7 +149,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">JWP</a>
+            <a class="navbar-brand" href="dashboard_admin.php">JWP</a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -170,10 +170,10 @@
                             <a class="nav-link active" href="daftar_artikel.php">Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Komentar</a>
+                            <a class="nav-link" href="komentar/daftar_komentar.php">Komentar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Laporan</a>
+                            <a class="nav-link" href="laporan/daftar_laporan.php">Laporan</a>
                         </li>
                     </ul>
                 </div>
@@ -185,54 +185,48 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h2>Employee <b>Details</b></h2>
+                                <h2>Input Artikel</h2>
                             </div>
                             <div class="col-sm-4">
                                 <button type="button" class="btn btn-info add-new" onclick="window.location.href='input_artikel.php'"><i class="fa fa-plus"></i> Add New</button>
+                            </div>
                         </div>
+                        <table class="table table-bordered" id="myTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Judul</th>
+                                    <th scope="col">Pembuat</th>
+                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">Gambar</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                include('../database/database.php');
+                                $no = 1;
+                                $query = mysqli_query($conn, "SELECT * FROM artikel");
+                                while ($row = mysqli_fetch_array($query)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $row['judul'] ?></td>
+                                        <td><?php echo $row['pembuat'] ?></td>
+                                        <td><?php echo $row['deskripsi'] ?></td>
+                                        <td>
+                                            <?php if (!empty($row['images'])) { ?>
+                                                <img src="data:image/jpg;base64,<?php echo base64_encode($row['images']) ?>" alt="Gambar Artikel" width="100" height="100">
+                                            <?php } ?>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="hapus-artikel.php?id=<?php echo $row['id_artikel'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th>Phone</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>Administration</td>
-                                <td>(171) 555-2222</td>
-                                <td>
-                                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Peter Parker</td>
-                                <td>Customer Service</td>
-                                <td>(313) 555-5735</td>
-                                <td>
-                                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Fran Wilson</td>
-                                <td>Human Resources</td>
-                                <td>(503) 555-9931</td>
-                                <td>
-                                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </main>
             <!-- End of main content -->
@@ -254,6 +248,10 @@
 
                 link.classList.add('active');
             });
+        });
+
+        $(document).ready(function() {
+            $('#myTable').DataTable();
         });
     </script>
 

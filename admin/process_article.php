@@ -1,61 +1,24 @@
 <?php
-require_once "../database/database.php";
+include('../database/database.php');
 
-// Cek apakah tombol submit telah ditekan
-// if (isset($_POST['submit'])) {
-//     // Mengambil informasi file gambar yang diunggah
-//     $file = $_FILES['gambar'];
-//     $fileName = $_FILES['gambar']['name'];
-//     $fileTmpName = $_FILES['gambar']['tmp_name'];
-//     $fileSize = $_FILES['gambar']['size'];
-//     $fileError = $_FILES['gambar']['error'];
-//     $fileType = $_FILES['gambar']['type'];
+// get data from form
+$judul = $_POST['judul'];
+$pembuat = $_POST['pembuat'];
+$deskripsi = $_POST['deskripsi'];
 
-//     // Memisahkan ekstensi file
-//     $fileExt = explode('.', $fileName);
-//     $fileActualExt = strtolower(end($fileExt));
+$imageName = $_FILES['gambar']['name'];
+$imageTmp = $_FILES['gambar']['tmp_name'];
+$imagePath = "../uploads/" . $imageName;
 
-//     // Membatasi ekstensi file yang diizinkan
-//     $allowedExtensions = array('jpg', 'jpeg', 'png');
+// Read the file content
+$imageData = file_get_contents($imageTmp);
+$imageData = mysqli_real_escape_string($conn, $imageData);
 
-//     // Memeriksa apakah ekstensi file diizinkan
-//     if (in_array($fileActualExt, $allowedExtensions)) {
-//         // Memeriksa apakah terdapat error saat mengunggah file
-//         if ($fileError === 0) {
-//             // Memeriksa ukuran file
-//             if ($fileSize < 5000000) {
-//                 // Membuat nama unik untuk file gambar yang diunggah
-//                 $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+$query = "INSERT INTO artikel (judul, pembuat, deskripsi, images) VALUES ('$judul', '$pembuat', '$deskripsi', '$imageData')";
 
-//                 // Menentukan lokasi penyimpanan file gambar
-//                 $fileDestination = '../uploads/' . $fileNameNew;
-
-//                 // Memindahkan file gambar yang diunggah ke lokasi penyimpanan
-//                 move_uploaded_file($fileTmpName, $fileDestination);
-
-//                 // Mengambil informasi artikel dari form
-//                 $judul = $_POST['judul'];
-//                 $pembuat = $_POST['pembuat'];
-//                 $deskripsi = $_POST['deskripsi'];
-
-//                 // Menyimpan informasi artikel dan nama gambar ke database menggunakan prepared statement
-//                 $stmt = $conn->prepare("INSERT INTO artikel (user_id, deskripsi, image, judul) VALUES (?, ?, ?, ?)");
-//                 $stmt->bind_param("isss", $user_id, $deskripsi, $fileNameNew, $judul);
-
-//                 if ($stmt->execute()) {
-//                     echo "Artikel berhasil ditambahkan!";
-//                 } else {
-//                     echo "Error: " . $stmt->error;
-//                 }
-
-//                 $stmt->close();
-//             } else {
-//                 echo "Ukuran file terlalu besar! (Maksimal 5MB)";
-//             }
-//         } else {
-//             echo "Error saat mengunggah file!";
-//         }
-//     } else {
-//         echo "Tipe file tidak diizinkan! (Hanya menerima file JPG, JPEG, dan PNG)";
-//     }
-// }
+if (move_uploaded_file($imageTmp, $imagePath) && $conn->query($query)) {
+    header("location: daftar_artikel.php");
+} else {
+    echo "Data gagal disimpan !";
+}
+?>

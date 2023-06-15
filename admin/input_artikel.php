@@ -38,8 +38,8 @@
                 <input type="file" name="gambar" id="gambar" class="form-control" required>
             </div>
             <div>
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" name="reset" value="cancel">Cancel</button>
+                <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                <button type="reset" name="reset" value="cancel" class="btn btn-warning">Reset</button>
             </div>
         </form>
     </div>

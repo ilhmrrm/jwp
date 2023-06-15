@@ -40,7 +40,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard_admin.php">JWP</a>
+            <a class="navbar-brand" href="../dashboard_admin.php">JWP</a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -58,13 +58,13 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="daftar_artikel.php">Artikel</a>
+                            <a class="nav-link active" href="../daftar_artikel.php">Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="komentar/daftar_komentar.php">Komentar</a>
+                            <a class="nav-link" href="../komentar/daftar_komentar.php">Komentar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="laporan/daftar_laporan.php">Laporan</a>
+                            <a class="nav-link" href="daftar_laporan.php">Laporan</a>
                         </li>
                     </ul>
                 </div>
@@ -72,33 +72,25 @@
 
             <!-- Main Content -->
             <main class="col-md-10 col-lg-10 ms-sm-auto px-md-4">
-                <div class="pt-3 pb-2 mb-3">
-                    <h2>Welcome, Admin!</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Articles</h5>
-                                <p class="card-text">50</p>
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h2>LAPORAN</h2>
                             </div>
+                            <!-- <div class="col-sm-4">
+                                <button type="button" class="btn btn-info add-new" onclick="window.location.href='input_artikel.php'"><i class="fa fa-plus"></i> Add New</button>
+                            </div> -->
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Comments</h5>
-                                <p class="card-text">100</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Reports</h5>
-                                <p class="card-text">20</p>
-                            </div>
-                        </div>
+                        <table class="table table-bordered" id="myTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Artikel</th>
+                                    <th scope="col">Komentar</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </main>
