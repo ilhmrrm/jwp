@@ -1,5 +1,5 @@
 <?php
-include("database.php");
+include("./database/database.php");
 error_reporting(0);
 session_start();
 
@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
         $res = mysqli_fetch_object($res);
         $_SESSION['status_login'] = true;
         $_SESSION['a_global'] = $res;
-        echo '<script>window.location="admin.php"</script>';
+        echo '<script>window.location="./admin/dashboard_admin.php"</script>';
     } else {
         echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
     }

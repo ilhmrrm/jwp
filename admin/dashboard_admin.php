@@ -1,3 +1,4 @@
+<!-- Dashboard admin -->
 <!DOCTYPE html>
 <html>
 
@@ -43,7 +44,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +58,7 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Artikel</a>
+                            <a class="nav-link active" href="daftar_artikel.php">Artikel</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Komentar</a>
