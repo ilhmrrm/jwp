@@ -191,7 +191,7 @@
                                 <button type="button" class="btn btn-info add-new" onclick="window.location.href='input_artikel.php'"><i class="fa fa-plus"></i> Add New</button>
                             </div>
                         </div>
-                        <table class="table table-bordered" id="myTable">
+                        <table class="table table-bordered table-dark" id="myTable">
                             <thead>
                                 <tr>
                                     <th scope="col">No.</th>

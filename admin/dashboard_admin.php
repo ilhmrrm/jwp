@@ -1,3 +1,27 @@
+<?php
+    include('../database/database.php');
+
+    $query = "SELECT COUNT(*) AS total FROM artikel";
+    $result = $conn->query($query);
+
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $totalArtikel = $row['total'];
+    } else {
+        $totalArtikel = 0;
+    }
+
+    $queryTotalKomentar = "SELECT COUNT(*) AS total_komentar FROM komentar";
+    $resultTotalKomentar = $conn->query($queryTotalKomentar);
+
+    if ($resultTotalKomentar) {
+        $rowTotalKomentar = $resultTotalKomentar->fetch_assoc();
+        $totalKomentar = $rowTotalKomentar['total_komentar'];
+    } else {
+        $totalKomentar = 0;
+    }
+?>
+
 <!-- Dashboard admin -->
 <!DOCTYPE html>
 <html>
@@ -79,8 +103,8 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Total Articles</h5>
-                                <p class="card-text">50</p>
+                                <h5 class="card-title">Total Artikel</h5>
+                                <p class="card-text"><?php echo $totalArtikel; ?></p>
                             </div>
                         </div>
                     </div>
@@ -88,15 +112,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Total Comments</h5>
-                                <p class="card-text">100</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Reports</h5>
-                                <p class="card-text">20</p>
+                                <p class="card-text"><?php echo $totalKomentar; ?></p>
                             </div>
                         </div>
                     </div>

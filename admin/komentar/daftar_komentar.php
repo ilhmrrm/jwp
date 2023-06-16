@@ -58,10 +58,10 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="../daftar_artikel.php">Artikel</a>
+                            <a class="nav-link" href="../daftar_artikel.php">Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="daftar_komentar.php">Komentar</a>
+                            <a class="nav-link active" href="daftar_komentar.php">Komentar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../laporan/daftar_laporan.php">Laporan</a>
@@ -76,22 +76,42 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h2>Kelola Laporan</h2>
+                                <h2>Kelola Komentar</h2>
                             </div>
                             <!-- <div class="col-sm-4">
                                 <button type="button" class="btn btn-info add-new" onclick="window.location.href='input_artikel.php'"><i class="fa fa-plus"></i> Add New</button>
                             </div> -->
                         </div>
-                        <table class="table table-bordered" id="myTable">
+                        <table class="table table-bordered table-striped table-dark" id="myTable">
                             <thead>
-                                <tr>
+                                <tr style="background-color: cyan; color: white;">
                                     <th scope="col">No.</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Komentar</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <?php
+                                include('../../database/database.php');
+                                $no = 1;
+                                $query = mysqli_query($conn, "SELECT * FROM komentar");
+                                while ($row = mysqli_fetch_array($query)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $row['nama'] ?></td>
+                                        <td><?php echo $row['email'] ?></td>
+                                        <td><?php echo $row['komentar'] ?></td>
+                                        <td class="text-center">
+                                            <a href="hapus-komentar.php?id=<?php echo $row['id_komentar'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
                         </table>
+
                     </div>
                 </div>
             </main>

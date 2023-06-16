@@ -1,4 +1,17 @@
-<!-- Dashboard admin -->
+<?php
+include('../../database/database.php');
+
+// Menghitung jumlah data artikel
+$queryArtikel = mysqli_query($conn, "SELECT COUNT(*) AS j_artikel FROM artikel");
+$rowArtikel = mysqli_fetch_assoc($queryArtikel);
+$totalArtikel = $rowArtikel['j_artikel'];
+
+// Menghitung jumlah data komentar
+$queryKomentar = mysqli_query($conn, "SELECT COUNT(*) AS j_komentar FROM komentar");
+$rowKomentar = mysqli_fetch_assoc($queryKomentar);
+$totalKomentar = $rowKomentar['j_komentar'];
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -90,6 +103,13 @@
                                     <th scope="col">Komentar</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><?php echo $totalArtikel; ?></td>
+                                    <td><?php echo $totalKomentar; ?></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
