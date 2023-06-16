@@ -1,3 +1,6 @@
+<?php
+include('database/database.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +17,7 @@
     <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="index.php" class="flex items-center">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">JWP</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-black">JWP</span>
             </a>
             <div class="flex md:order-2">
                 <a href="login.php"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button></a>
@@ -60,64 +63,25 @@
         </button>
     </div>
     <!-- End of Carousel -->
-
-    <section class="w-full self-center px-4">
-        <br>
-        <h1 class="font-bold text-xl">Terbaru</h1>
-        <br>
+    <div class="container mx-auto p-5">
+        <h1 class="text-3xl font-bold mb-4">News Articles</h1>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            <!-- Mulai -->
-            <a href="#" class="flex flex-col items-center bg-white rounded-lg border shadow-md lg:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="assets/kobo.jpg" alt="Lepkom">
-                <div class="flex flex-wrap justify-between p-4 leading-normal">
-                    <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Course Instructor</h1>
-                    <h2 class="mb-3 font-semibold text-gray-800 dark:text-gray-400">( March 2022 - Present )</h2>
-                    <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400 text-justify">Teaching practitioners with approximately 40 participants per class.</p>
-                </div>
-            </a>
-            <a href="#" class="flex flex-col items-center bg-white rounded-lg border shadow-md lg:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="assets/kobo.jpg" alt="Ruangguru">
-                <div class="flex flex-wrap justify-between p-4 leading-normal">
-                    <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Backend Engineering Ruangguru</h1>
-                    <h2 class="mb-3 font-semibold text-gray-800 dark:text-gray-400">( August - Present )</h2>
-                    <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400 text-justify">I'm Apprenticeship at Backend Engineering Ruangguru, I hope when this program was finished the knowledge would be useful for my dreams</p>
-                </div>
-            </a>
-            <a href="#" class="flex flex-col items-center bg-white rounded-lg border shadow-md lg:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="assets/kobo.jpg" alt="Ruangguru">
-                <div class="flex flex-wrap justify-between p-4 leading-normal">
-                    <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">My Dreams in the future</h1>
-                    <h2 class="mb-3 font-semibold text-gray-800 dark:text-gray-400">( August - Present )</h2>
-                    <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, unde. Nemo quaerat tempora impedit doloremque consequatur ducimus blanditiis sed quidem ullam, magni labore nulla officia voluptas explicabo reprehenderit quisquam consectetur.</p>
-                </div>
-            </a>
-            <a href="#" class="flex flex-col items-center bg-white rounded-lg border shadow-md lg:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="assets/kobo.jpg" alt="Ruangguru">
-                <div class="flex flex-wrap justify-between p-4 leading-normal">
-                    <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">My Dreams in the future</h1>
-                    <h2 class="mb-3 font-semibold text-gray-800 dark:text-gray-400">( August - Present )</h2>
-                    <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, unde. Nemo quaerat tempora impedit doloremque consequatur ducimus blanditiis sed quidem ullam, magni labore nulla officia voluptas explicabo reprehenderit quisquam consectetur.</p>
-                </div>
-            </a>
-            <a href="#" class="flex flex-col items-center bg-white rounded-lg border shadow-md lg:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="assets/kobo.jpg" alt="Ruangguru">
-                <div class="flex flex-wrap justify-between p-4 leading-normal">
-                    <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">My Dreams in the future</h1>
-                    <h2 class="mb-3 font-semibold text-gray-800 dark:text-gray-400">( August - Present )</h2>
-                    <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, unde. Nemo quaerat tempora impedit doloremque consequatur ducimus blanditiis sed quidem ullam, magni labore nulla officia voluptas explicabo reprehenderit quisquam consectetur.</p>
-                </div>
-            </a>
-            <a href="#" class="flex flex-col items-center bg-white rounded-lg border shadow-md lg:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="assets/kobo.jpg" alt="Ruangguru">
-                <div class="flex flex-wrap justify-between p-4 leading-normal">
-                    <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">My Dreams in the future</h1>
-                    <h2 class="mb-3 font-semibold text-gray-800 dark:text-gray-400">( August - Present )</h2>
-                    <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, unde. Nemo quaerat tempora impedit doloremque consequatur ducimus blanditiis sed quidem ullam, magni labore nulla officia voluptas explicabo reprehenderit quisquam consectetur.</p>
-                </div>
-            </a>
-            <!-- Selesai -->
+            <?php
+            $query = mysqli_query($conn, "SELECT * FROM artikel");
+            while ($row = mysqli_fetch_array($query)) {
+            ?>
+                <a href="artikel.php?id=<?php echo $row['id_artikel'] ?>" class="flex flex-col items-center bg-white rounded-lg border shadow-md lg:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <?php if (!empty($row['images'])) { ?>
+                        <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="data:image/jpeg;base64,<?php echo base64_encode($row['images']) ?>" alt="Article Image">
+                    <?php } ?>
+                    <div class="flex flex-wrap justify-between p-4 leading-normal">
+                        <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-black"><?php echo $row['judul'] ?></h1>
+                        <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400 text-justify"><?php echo $row['deskripsi'] ?></p>
+                    </div>
+                </a>
+            <?php } ?>
         </div>
-    </section>
+    </div>
     <!-- Experience Card End -->
 </body>
 <!-- Tambahkan script JavaScript untuk Bootstrap (optional) -->

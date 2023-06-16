@@ -197,7 +197,6 @@
                                     <th scope="col">No.</th>
                                     <th scope="col">Judul</th>
                                     <th scope="col">Pembuat</th>
-                                    <th scope="col">Deskripsi</th>
                                     <th scope="col">Gambar</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -213,7 +212,6 @@
                                         <td><?php echo $no++ ?></td>
                                         <td><?php echo $row['judul'] ?></td>
                                         <td><?php echo $row['pembuat'] ?></td>
-                                        <td><?php echo $row['deskripsi'] ?></td>
                                         <td>
                                             <?php if (!empty($row['images'])) { ?>
                                                 <img src="data:image/jpg;base64,<?php echo base64_encode($row['images']) ?>" alt="Gambar Artikel" width="100" height="100">
