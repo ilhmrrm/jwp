@@ -9,7 +9,7 @@ if (isset($_POST['id_artikel']) && isset($_POST['nama']) && isset($_POST['email'
     $komentar = $_POST['komentar'];
 
     // Simpan komentar ke dalam tabel komentar
-    $query = "INSERT INTO komentar (id_komentar, nama, email, komentar) VALUES ('$idArtikel', '$nama', '$email', '$komentar')";
+    $query = "INSERT INTO komentar (id_artikel, nama, email, komentar) VALUES ('$idArtikel', '$nama', '$email', '$komentar')";
     mysqli_query($conn, $query);
 
     // Redirect kembali ke halaman artikel setelah komentar disimpan
